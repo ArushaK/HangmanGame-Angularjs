@@ -1,0 +1,17 @@
+h1 {
+  font-size: 3rem;
+}
+
+.startButtonContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 212px;
+  position: relative;
+  top: 310px;
+  left: 50px;
+}
+
+// Button to play one player game
+.onePlayer {
+  margin-bottom: 20px;
+}

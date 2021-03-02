@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Hangman App</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- Load FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/6d54e0ab0d.js"
+      crossorigin="anonymous"
+    ></script>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.min.js"></script>
+    <!-- Load Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body ng-controller="GameController">
+    <header>
+      <div class="wrapper">
+        <h1>Hangman</h1>
+        <div class="category" aria-label="category" ng-bind-html="categoryb"></div>
+      </div>
+    </header>
+    <main>
+      <div class="wrapper">
+        <!-- Category is displayed here -->
+        
+        <!-- Gallows is displayed here -->
+        <div class="gallows" id="gallows" ng-style="gall">
+          <span class="rope"></span>
+          <span class="horizontalScaffold"></span>
+          <span class="verticalScaffold"></span>
+          <span class="platform"></span>
+          <!-- Body parts appear here -->
+          <div class="body">
+            <span
+              class="head hidden"
+              ng-class="{active : isSelected1()}"
+            ></span>
+            <span
+              class="torso hidden"
+              ng-class="{active : isSelected2()}"
+            ></span>
+            <span
+              class="leftArm hidden"
+              ng-class="{active : isSelected3()}"
+            ></span>
+            <span
+              class="rightArm hidden"
+              ng-class="{active : isSelected4()}"
+            ></span>
+            <span
+              class="leftLeg hidden"
+              ng-class="{active : isSelected5()}"
+            ></span>
+            <span
+              class="rightLeg hidden"
+              ng-class="{active : isSelected6()}"
+            ></span>
+          </div>
+        </div>
+
+        
+        <div class="startButtonContainer">
+          <!-- Buttons to start game -->
+
+          <button class="onePlayer" ng-click="onePlayer()" ng-hide="IsVisible">
+            One Player
+          </button>
+          <!-- <button class="twoPlayers" ng-hide="IsVisible">Two Players</button> -->
+        </div>
+        
+        <!-- Blank spots for correctly guessed letters to appear -->
+        <div
+          class="blank"
+          ng-bind-html="blankb"
+          aria-label="if you guess a correct letter it will appear here"
+        ></div>
+
+        <!-- Form to input guesses (one player) -->
+        <form
+          action="#"
+          ng-model="onePlayerGuessForm"
+          class="guessForm"
+          autocomplete="off"
+          ng-class="{active : isSelected()}"
+        >
+          <label class="sr-only" for="onePlayerGuessInput"
+            >Guess a letter</label
+          >
+          <input
+            id="onePlayerGuessInput"
+            type="text"
+            placeholder="letter"
+            required
+            name="guess"
+            ng-model="input.letter"
+            ng-minlength="1"
+            ng-maxlength="1"
+            ng-pattern="/^[A-Za-z]+$/"
+          />
+          <button ng-click="guess($event)">guess</button>
+        </form>
+
+        <!-- Incorrect guesses displayed here -->
+        <div
+          class="wrong"
+          ng-repeat="x in incorrectLettersChosen"
+          aria-label="if you guess a wrong letter it will appear here"
+        >{{x}}</div>
+
+        <!-- Button to play again. Reloads the page. -->
+        <button class="playAgain hidden" ng-class="{active : isSelectedpl()}" ng-click="again()">
+          Play again
+        </button>
+      </div>
+    </main>
+</body>
+    <!-- Modal for alerts -->
+    <div
+      class="alertModal"
+      id="alertModal"
+      ng-class="{active : isSelectedalert()}"
+    >
+      <!-- Text is displayed here -->
+      <div
+        class="alertModalText"
+        id="alertModalText"
+        ng-bind-html="alerttextb"
+      ></div>
+      <!-- Button to close modal -->
+      <button id="ok" ng-click="ok()">ok</button>
+    </div>
+    <div
+      class="alertModalBackground"
+      id="alertModalBackground"
+      ng-class="{active : isSelectedalertback()}"
+    ></div>
+  </body>
+</html>

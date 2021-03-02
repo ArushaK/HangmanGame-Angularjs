@@ -1,0 +1,49 @@
+.gallows,
+.platform,
+.horizontalScaffold {
+  width: 100px;
+}
+
+.platform,
+.verticalScaffold,
+.horizontalScaffold,
+.rope {
+  display: block;
+}
+
+.platform,
+.verticalScaffold,
+.horizontalScaffold,
+.rope {
+  position: absolute;
+  background: $black;
+}
+
+.gallows {
+  position: absolute;
+  left: 35px;
+  top: 120px;
+}
+
+.platform {
+  left: 20px;
+  top: 250px;
+  height: 5px;
+}
+
+.verticalScaffold {
+  left: 70px;
+  height: 250px;
+  width: 5px;
+}
+
+.horizontalScaffold {
+  left: 70px;
+  height: 5px;
+}
+
+.rope {
+  left: 165px;
+  height: 40px;
+  width: 2px;
+}

@@ -1,0 +1,60 @@
+.head,
+.torso,
+.leftArm,
+.rightArm,
+.leftLeg,
+.rightLeg {
+  position: absolute;
+}
+
+.torso,
+.leftArm,
+.rightArm,
+.leftLeg,
+.rightLeg {
+  background: $black;
+  width: 4px;
+}
+
+.head {
+  left: 145px;
+  top: 40px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 4px solid $black;
+}
+
+.torso {
+  left: 165px;
+  top: 77px;
+  height: 70px;
+}
+
+.leftArm {
+  left: 157px;
+  top: 85px;
+  height: 50px;
+  transform: rotate(20deg);
+}
+
+.rightArm {
+  left: 173px;
+  top: 85px;
+  height: 50px;
+  transform: rotate(-20deg);
+}
+
+.leftLeg {
+  left: 155px;
+  top: 143px;
+  height: 60px;
+  transform: rotate(20deg);
+}
+
+.rightLeg {
+  left: 175px;
+  top: 143px;
+  height: 60px;
+  transform: rotate(-20deg);
+}
